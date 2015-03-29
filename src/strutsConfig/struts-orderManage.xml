@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="ordermanage" extends="json-default">
+	<!--订单管理-->
+	<action name="UserLastedMonthOrder" class="com.weini.manage.action.OrderAction" method="getUserLastedMonthOrder">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">
+				nowMonthOrderlist\[\d+\]\.SOrderId,
+				nowMonthOrderlist\[\d+\]\.SOrderDispatchingDateString,
+				nowMonthOrderlist\[\d+\]\.menuTypeDesc,
+				lastMonthOrderlist\[\d+\]\.SOrderId,
+				lastMonthOrderlist\[\d+\]\.SOrderDispatchingDateString,
+				lastMonthOrderlist\[\d+\]\.menuTypeDesc
+			</param>
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<action name="SonOrderList" class="com.weini.manage.action.OrderAction" method="getSonOrderList">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">datalist.*</param>				
+		</result>
+	</action>
+	<action name="NewOrder" class="com.weini.manage.action.OrderAction" method="addOrder">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">code,orderNum</param>				
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<action name="OrderPayStatus" class="com.weini.manage.action.OrderAction" method="getOrderPayStatus">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">code,ordereStatus</param>				
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<action name="UserOrderList" class="com.weini.manage.action.OrderAction" method="getUserOrderListLimit">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">
+				code,
+				datalist\[\d+\]\.orderNum,
+				datalist\[\d+\]\.orderBoxType,
+				datalist\[\d+\]\.orderOrderTimeString,
+				datalist\[\d+\]\.orderMenuWestern, 
+				datalist\[\d+\]\.orderStatus,
+			</param>				
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<action name="UserSomeMonthOrder" class="com.weini.manage.action.OrderAction" method="getUserSomeMonthOrder">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">
+				code,
+				datalist\[\d+\]\.menuId,
+				datalist\[\d+\]\.SOrderDispatchingDateString,
+				datalist\[\d+\]\.menuTypeDesc
+			</param>				
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<action name="OrderDetailByOrderNum" class="com.weini.manage.action.OrderAction" method="getOrderDetailByOrderNum">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">
+				code,
+				orderDetail\.orderNum,
+				orderDetail\.userId,
+				orderDetail\.orderMenuinfoId,
+				orderDetail\.orderBoxType,
+				orderDetail\.orderBoxTypeName,
+				orderDetail\.orderStartTimeString,
+				orderDetail\.orderOrderTimeString,
+				orderDetail\.SOrderConsumeStatus,
+				orderDetail\.orderPayTimeString,
+				orderDetail\.boxPrice,
+				orderDetail\.orderIsFirst,
+				orderDetail\.orderDispatchingId,
+				orderDetail\.orderStatus,
+				orderDetail\.orderNotice
+			</param>				
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<!-- 获取订单简略信息 -->
+	<action name="OrderSimpleInfoByOrderNum" class="com.weini.manage.action.OrderAction" method="getOrderSimpleInfoByOrderNum">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">
+				code,
+				orderDetail\.orderNum,
+				orderDetail\.orderOrderTimeString,
+				orderDetail\.orderNotice,
+				disAddress\.dispatchingCity,
+				disAddress\.dispatchingDistrict,
+				disAddress\.dispatchingBusinessAreaid,
+				disAddress\.dispatchingOfficeBuilding,
+				disAddress\.dispatchingAddressDetail,
+				disAddress\.dispatchingPhoneNum
+			</param>				
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<action name="UserApplyRefund" class="com.weini.manage.action.OrderAction" method="UserApplyRefund">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">code</param>				
+		</result>
+	</action>
+	<action name="UserOrderByDate" class="com.weini.manage.action.OrderAction" method="getUserOrderByDate">
+		<result name="SUCCESS" type="json">
+			<param name="includeProperties">code,datalist.*</param>				
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	<action name="OrderStatusTrack" class="com.weini.manage.action.OrderAction" method="searchOrderStatusTrack">
+		<result name="SUCCESS" type="json">				
+		<param name="includeProperties">
+			code,
+			trackPage\[\d+\]\.trackpageId,
+			trackPage\[\d+\]\.trackpageCurrentstate,
+			trackPage\[\d+\]\.trackpageCurbackcolindex,
+			trackPage\[\d+\]\.trackpageTiptext,
+			trackPage\[\d+\]\.trackStringPageStartTime,
+			trackPage\[\d+\]\.trackStringPageEndTime
+			
+		</param>
+		</result>
+		<result name="FAIL" type="json">
+			<param name="includeProperties">code,result</param>				
+		</result>
+	</action>
+	</package>
+
+</struts>    
