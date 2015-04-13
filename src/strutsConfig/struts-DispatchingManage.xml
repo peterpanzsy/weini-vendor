@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="dispatchingmanage" extends="json-default" namespace="/dispatchingManage" >
+		 <action name="addDispatching" class="com.weini.manage.action.DispatchingManageAction" method="addDispatching">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">code</param>			
+			</result>
+			<result name="FAIL" type="json">	
+				<param name="includeProperties">code,result</param>			
+			</result>
+		</action>
+		<!-- 修改送餐地址 -->
+		<action name="updateDispatching" class="com.weini.manage.action.DispatchingManageAction" method="updateDispatching">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">code</param>			
+			</result>
+			<result name="FAIL" type="json">	
+				<param name="includeProperties">code,result</param>			
+			</result>
+		</action>
+			
+		<!-- 送餐地址列表 -->
+		<action name="listDispatching" class="com.weini.manage.action.DispatchingManageAction" method="listDispatching">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">list.*</param>			
+			</result>
+			<result name="FAIL" type="json">	
+				<param name="includeProperties">code,result</param>			
+			</result>
+		</action>
+		<!-- 删除送餐地址 -->
+		<action name="delDispatching" class="com.weini.manage.action.DispatchingManageAction" method="delDispatching">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">code</param>			
+			</result>
+			<result name="FAIL" type="json">	
+				<param name="includeProperties">code,result</param>			
+			</result>
+		</action>
+		<!-- 获取详细送餐地址信息 -->
+		<action name="detailDispatching" class="com.weini.manage.action.DispatchingManageAction" method="dispatchingDetail">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">code,dispatchAddress.*</param>			
+			</result>
+			<result name="FAIL" type="json">	
+				<param name="includeProperties">code,result</param>			
+			</result>
+		</action>
+		<!-- 修改用户默认送餐地址 -->
+		<action name="ChangeUserDefaultDispatching" class="com.weini.manage.action.DispatchingManageAction" method="ChangeUserDefaultDispatchingId">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">code</param>			
+			</result>
+			<result name="FAIL" type="json">	
+				<param name="includeProperties">code,result</param>			
+			</result>
+		</action>
+	</package>
+</struts>    

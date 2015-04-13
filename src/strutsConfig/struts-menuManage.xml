@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="menumanage" extends="json-default" namespace="/menuManage" >
+		<!-- 列出所有的盒子模型 -->
+		 <action name="menuinfoDetail" class="com.weini.manage.action.MenuManageAction" method="menuinfoDetail">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">
+				code,
+				menu\.menuinfoName,
+				menu\.menuinfoImage1,
+				menu\.menuinfoImage2,
+				menu\.menuinfoImage3,
+				menu\.menuinfoImage4,
+				menu\.menuinfoDetail,
+				menu\.menuinfoDateString,
+				menu\.menuinfoPoint,
+				menu\.menuinfoWestern,
+				menu\.menuType,
+				menu\.menuinfoConsumernum,
+				menu\.menuinfoBusinessAreaID,
+				menu\.dishesList\[\d+\]\.dishesName,
+				menu\.dishesList\[\d+\]\.dishesSeries1,
+				menu\.dishesList\[\d+\]\.dishesWeight,
+				</param>			
+			</result>
+			<result name="FAIL" type="json">	
+				<param name="includeProperties">
+					code,result
+				</param>			
+			</result>
+		</action>
+		<!-- 列出所有menutype  -->	
+		<action name="listMenutype" class="com.weini.manage.action.MenuManageAction" method="listMenutype">
+			<result name="success" type="json">	
+				<param name="includeProperties">code,list.*</param>			
+			</result>
+			<result name="fail" type="json">	
+				<param name="includeProperties">code,result</param>			
+			</result>
+		</action>
+		
+		<!-- 列出所有meneinfo  -->	
+		<action name="listMenuinfo" class="com.weini.manage.action.MenuManageAction" method="listMenuinfo">
+			<result name="SUCCESS" type="json">	
+				<param name="includeProperties">
+					code,
+					list\[\d+\]\.menuinfoName,
+					list\[\d+\]\.menuinfoImage1,
+					list\[\d+\]\.menuinfoImage2,
+					list\[\d+\]\.menuinfoImage3,
+					list\[\d+\]\.menuinfoImage4,
+					list\[\d+\]\.menuinfoDetail,
+					list\[\d+\]\.menuinfoDateString,
+					list\[\d+\]\.menuinfoPoint,
+					list\[\d+\]\.menuinfoWestern,
+					list\[\d+\]\.menuType,
+					list\[\d+\]\.menuinfoConsumernum,
+					list\[\d+\]\.menuinfoBusinessAreaID,
+					list\[\d+\]\.dishesList\[\d+\]\.dishesName,
+					list\[\d+\]\.dishesList\[\d+\]\.dishesSeries1,
+					list\[\d+\]\.dishesList\[\d+\]\.dishesWeight,
+				</param>			
+			</result>
+		</action>
+	</package>
+</struts>    
