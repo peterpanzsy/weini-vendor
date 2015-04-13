@@ -4,19 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
   <display-name>WeiNiManage</display-name>
-<<<<<<< HEAD
-=======
-  <filter>
-        <filter-name>access filter</filter-name>
-        <filter-class>
-            com.weini.tools.AccessFilter
-        </filter-class>
-  </filter>
-  <filter-mapping>
-        <filter-name>access filter</filter-name>
-        <url-pattern>/*</url-pattern>
-  </filter-mapping>
->>>>>>> 5598dd660f66c7a0df67ec8d7ab46f0f3fcbc43c
 
   <filter>
     <filter-name>struts2</filter-name>
@@ -24,16 +11,7 @@
   </filter>
   <filter-mapping>
     <filter-name>struts2</filter-name>
-<<<<<<< HEAD
     <url-pattern>*.action</url-pattern>
   </filter-mapping>
 
-=======
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  <session-config>
-        <session-timeout>86400</session-timeout>
-        <tracking-mode>COOKIE</tracking-mode>
-  </session-config>
->>>>>>> 5598dd660f66c7a0df67ec8d7ab46f0f3fcbc43c
 </web-app>

@@ -55,11 +55,11 @@ public class EchoServerEndPoint {
         System.out.println(session.getId() + " has opened a connection");
         try {
             session.getBasicRemote().sendText("Connection Established");
-            while(true){
+
                 session.getBasicRemote().sendText(session.getId());
                 session.getBasicRemote().sendText(connectionMap.keySet().toString());
                 //this.wait(3000);
-            }
+
         } catch (Exception ex) {
             ex.printStackTrace();
             connectionMap.get(vendorId).remove(this);
